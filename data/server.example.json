@@ -1,0 +1,15 @@
+{
+    "listen": "tcp://0.0.0.0:40000",
+    "psk": "change-this-shared-secret",
+    "name": "win-prod-01",
+    "debug": false,
+    "settings": {
+        "default_timeout": 60,
+        "max_timeout": 3600,
+        "max_output_bytes": 2097152,
+        "chunk_size": 10485760,
+        "chunk_threshold": 10485760,
+        "max_transfer_bytes": 1073741824,
+        "temp_subdir": "tmp"
+    }
+}

@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# uv / virtual env
+.venv/
+.uv-cache/
+.uv-python/
+uv.toml
+
+# Testing
+.pytest_cache/
+.pytest-cache/
+pytest-cache-files-*/
+.tmp/
+testtmp/
+.coverage
+htmlcov/
+
+# Runtime transfer temp files (keep the example configs)
+data/tmp/
+data/_smoketest/
+data/_test_server.json
+
+# Local config with real secrets (examples are tracked)
+data/server.json
+data/client.json
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp

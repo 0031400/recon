@@ -1,0 +1,6 @@
+{
+    "server": "tcp://127.0.0.1:40000",
+    "psk": "change-this-shared-secret",
+    "name": "win-prod-01",
+    "debug": false
+}
