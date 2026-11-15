@@ -54,12 +54,16 @@ class RemoteConnection:
         async with self._lock:
             if self._writer is None or self._writer.is_closing():
                 await self._connect()
+            # After the branch above the connection is guaranteed to exist.
+            writer, reader = self._writer, self._reader
+            if writer is None or reader is None:
+                raise RuntimeError("not connected")
             req_id = next(self._ids)
             req = {"type": "req", "id": req_id, "method": method, "params": params}
             try:
-                await aio.send_ctrl(self._writer, self.key, req)
+                await aio.send_ctrl(writer, self.key, req)
                 while True:
-                    frame_type, payload = await aio.read_typed(self._reader, self.key)
+                    frame_type, payload = await aio.read_typed(reader, self.key)
                     if frame_type != protocol.FRAME_TYPE_CTRL:
                         continue
                     resp = protocol.decode_ctrl(payload)
