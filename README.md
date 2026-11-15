@@ -65,32 +65,32 @@ uv sync
 
 ## 运行
 
+`server` 与 `client` 是**平级子命令**，结构一致，各自只接受 `-c <配置文件路径>`。
+
 远端（被控主机）：
 
 ```bash
 uv run python -m recon server -c data/server.json
-# 或安装后
-uv run recon-server -c data/server.json
 ```
 
 本地（AI 端，作为 MCP stdio server 由客户端拉起）：
 
 ```bash
-uv run python -m recon -c data/client.json
+uv run python -m recon client -c data/client.json
 ```
 
-> 客户端与服务端都**只接受 `-c <配置文件路径>`** 这一个命令行参数；`host`/`port`/`psk`/`name` 等全部写在配置文件里，且**不读取任何环境变量**。
+> `server` 和 `client` 都**只接受 `-c <配置文件路径>`** 这一个命令行参数；`host`/`port`/`psk`/`name` 等全部写在配置文件里，且**不读取任何环境变量**。
 
 ### 接入 AI 客户端（MCP 配置）
 
-用 stdio 方式配置，由客户端拉起本地 `recon`（只传 `-c` 指向客户端配置文件）：
+用 stdio 方式配置，由客户端拉起本地 `recon client`（只传 `-c` 指向客户端配置文件）：
 
 ```json
 {
   "mcpServers": {
     "win-prod-01": {
       "command": "uv",
-      "args": ["run", "python", "-m", "recon", "-c", "D:/path/to/data/client.json"]
+      "args": ["run", "python", "-m", "recon", "client", "-c", "D:/path/to/data/client.json"]
     }
   }
 }
@@ -132,12 +132,12 @@ uv run python -m recon -c data/client.json
 
 ```
 recon/
-├── pyproject.toml           # uv / 依赖 / 入口 recon, recon-server
+├── pyproject.toml           # uv / 依赖 / 入口 recon
 ├── data/                    # 配置示例 + 传输临时文件
 │   ├── server.example.json
 │   └── client.example.json
 ├── src/recon/
-│   ├── __main__.py          # CLI: `recon server -c ...` / `recon -c ...`
+│   ├── __main__.py          # CLI: `recon server -c ...` / `recon client -c ...`
 │   ├── config.py            # Server/Client 配置（JSON）
 │   ├── config_tuning.py     # exec/传输参数（Settings）
 │   ├── crypto.py            # AES-128-ECB 帧加密（frit 同源）

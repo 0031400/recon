@@ -39,7 +39,7 @@ def main():
         json.dump({"server": "tcp://127.0.0.1:40123", "psk": "stdio-test-psk",
                    "name": "e2e-win", "debug": False}, f)
     proc = subprocess.Popen(
-        [PY, "-m", "recon", "-c", cfg_path],
+        [PY, "-m", "recon", "client", "-c", cfg_path],
         stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
         cwd=ROOT, env=env,
     )

@@ -9,7 +9,7 @@ Server (``recon server -c data/server.json``):
         "debug": false
     }
 
-Client (``recon -c data/client.json``, or via MCP "args"):
+Client (``recon client -c data/client.json``, or via MCP "args"):
     {
         "server": "tcp://1.2.3.4:40000",
         "psk": "shared-secret",
