@@ -123,7 +123,6 @@ class Executor(ABC):
 
     def host_info(self) -> dict:
         return {
-            "name": self.settings.name,
             "os": platform.system(),
             "os_version": platform.version(),
             "release": platform.release(),

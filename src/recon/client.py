@@ -82,7 +82,7 @@ class RemoteConnection:
 
 def build_client(config: ClientConfig) -> FastMCP:
     conn = RemoteConnection(config)
-    mcp = FastMCP(config.name or "recon")
+    mcp = FastMCP("recon")
 
     # ---------------- meta ----------------
     @mcp.tool()

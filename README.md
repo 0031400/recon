@@ -34,7 +34,6 @@ uv sync
 {
     "listen": "tcp://0.0.0.0:40000",
     "psk": "共享密钥",
-    "name": "win-prod-01",
     "debug": false,
     "settings": {
         "default_timeout": 60,
@@ -54,7 +53,6 @@ uv sync
 {
     "server": "tcp://1.2.3.4:40000",
     "psk": "共享密钥",
-    "name": "win-prod-01",
     "debug": false
 }
 ```
@@ -79,7 +77,7 @@ uv run python -m recon server -c data/server.json
 uv run python -m recon client -c data/client.json
 ```
 
-> `server` 和 `client` 都**只接受 `-c <配置文件路径>`** 这一个命令行参数；`host`/`port`/`psk`/`name` 等全部写在配置文件里，且**不读取任何环境变量**。
+> `server` 和 `client` 都**只接受 `-c <配置文件路径>`** 这一个命令行参数；`host`/`port`/`psk` 等全部写在配置文件里，且**不读取任何环境变量**。
 
 ### 接入 AI 客户端（MCP 配置）
 

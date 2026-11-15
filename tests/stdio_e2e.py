@@ -37,7 +37,7 @@ def main():
     cfg_path = os.path.join(ROOT, "data", "_test_client.json")
     with open(cfg_path, "w", encoding="utf-8") as f:
         json.dump({"server": "tcp://127.0.0.1:40123", "psk": "stdio-test-psk",
-                   "name": "e2e-win", "debug": False}, f)
+                   "debug": False}, f)
     proc = subprocess.Popen(
         [PY, "-m", "recon", "client", "-c", cfg_path],
         stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE,

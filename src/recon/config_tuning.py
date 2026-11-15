@@ -17,9 +17,6 @@ DEFAULT_DATA_DIR = Path(__file__).resolve().parent.parent.parent / "data"
 
 
 class Settings(BaseModel):
-    # --- server identity ---
-    name: str = "recon"
-
     # --- exec ---
     default_timeout: int = 60
     max_timeout: int = 3600

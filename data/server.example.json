@@ -1,7 +1,6 @@
 {
     "listen": "tcp://0.0.0.0:40000",
     "psk": "change-this-shared-secret",
-    "name": "win-prod-01",
     "debug": false,
     "settings": {
         "default_timeout": 60,

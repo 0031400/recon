@@ -13,7 +13,6 @@ Client (``recon client -c data/client.json``, or via MCP "args"):
     {
         "server": "tcp://1.2.3.4:40000",
         "psk": "shared-secret",
-        "name": "my-host",
         "debug": false
     }
 
@@ -61,7 +60,6 @@ class ServerConfig(BaseModel):
     listen: str
     psk: str
     debug: bool = False
-    name: str = "recon"
     host: str = ""
     port: int = 0
     settings: Settings = Field(default_factory=Settings)
@@ -79,7 +77,6 @@ class ServerConfig(BaseModel):
             listen=d["listen"],
             psk=d["psk"],
             debug=bool(d.get("debug", False)),
-            name=d.get("name", "recon"),
             host=host,
             port=port,
             settings=settings,
@@ -89,7 +86,6 @@ class ServerConfig(BaseModel):
 class ClientConfig(BaseModel):
     server: str
     psk: str
-    name: str = ""
     debug: bool = False
     host: str = ""
     port: int = 0
@@ -105,7 +101,6 @@ class ClientConfig(BaseModel):
         return cls(
             server=d["server"],
             psk=d["psk"],
-            name=d.get("name", ""),
             debug=bool(d.get("debug", False)),
             host=host,
             port=port,
