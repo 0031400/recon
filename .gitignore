@@ -20,13 +20,8 @@ testtmp/
 htmlcov/
 
 # Runtime transfer temp files (keep the example configs)
-data/tmp/
-data/_smoketest/
-data/_test_server.json
-
-# Local config with real secrets (examples are tracked)
-data/server.json
-data/client.json
+data/
+!data/example.json
 
 # OS / editor
 .DS_Store
